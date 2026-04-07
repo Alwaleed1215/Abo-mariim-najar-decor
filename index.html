@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="ابو مريم لأعمال النجارة والديكور الخشبي بالرياض. متخصصون في تفصيل الخزائن، غرف النوم، غرف الملابس، والديكورات الخشبية الفاخرة بأعلى جودة. نخدم حي الملك فهد وكافة أحياء الرياض.">
+    <meta name="keywords" content="فني نجارة, نجار الرياض, تفصيل خزائن, غرف نوم, ديكورات خشبية, ابو مريم, نجار حي الملك فهد, صيانة نجارة, تفصيل دواليب, ديكور شاشات">
+    
+    <meta name="google-site-verification" content="pL1De9gqs2FyjpEamGfW8ThnER5EAtKVMYMkBsVfLjk" />
+
+    <meta property="og:title" content="ابو مريم | لأعمال النجارة والديكور الخشبي">
+    <meta property="og:description" content="أرقى خدمات النجارة وتفصيل الموبيليا بلمسات فنية إبداعية في الرياض (حي الملك فهد). جودة، دقة، وضمان.">
+    <meta property="og:image" content="https://i.ibb.co/JjbTRxmm/20260408-014409.png">
+    <meta property="og:type" content="website">
+
+    <title>ابو مريم | لأعمال النجارة والديكور الخشبي بالرياض</title>
+    
+    <link rel="icon" href="https://i.ibb.co/JjbTRxmm/20260408-014409.png" type="image/png">
+    <link rel="apple-touch-icon" href="https://i.ibb.co/JjbTRxmm/20260408-014409.png">
+
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* ================= المتغيرات والألوان (ثيم الخشب الفاخر) ================= */
+        :root {
+            --bg-color: #1a110a; 
+            --surface-color: #2b1d14; 
+            --gold-primary: #d28b4b; 
+            --gold-light: #e8bd9b; 
+            --text-light: #f4ece6; 
+            --text-muted: #b8a598; 
+            --silver: #a07855; 
+        }
+
+        /* الإعدادات العامة والخطوط */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Tajawal', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        html, body {
+            width: 100%;
+            overflow-x: hidden;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-light);
+            line-height: 1.6;
+            padding-bottom: 90px;
+        }
+
+        body.no-scroll { overflow: hidden; }
+
+        /* ================= نظام اللغتين (CSS) ================= */
+        html[lang="ar"] .en { display: none; }
+        html[lang="en"] .ar { display: none; }
+        html[lang="en"] { direction: ltr; }
+        html[lang="en"] .feature-card { text-align: left; flex-direction: row; }
+        html[lang="ar"] .feature-card { text-align: right; flex-direction: row; }
+        /* ======================================================= */
+
+        /* شاشة التحميل (Loader) الدائرية الفخمة */
+        #loader {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background-color: var(--bg-color); z-index: 99999;
+            display: flex; flex-direction: column; justify-content: center; align-items: center;
+            transition: opacity 0.5s ease, visibility 0.5s ease;
+        }
+        #loader.hidden { opacity: 0; visibility: hidden; }
+        .loader-content { text-align: center; display: flex; flex-direction: column; align-items: center; }
+        
+        .loader-image-frame {
+            width: 160px; height: 160px; border-radius: 50%;
+            background: radial-gradient(circle, var(--surface-color) 0%, var(--bg-color) 100%);
+            border: 4px solid transparent;
+            border-top-color: var(--gold-primary);
+            border-bottom-color: var(--gold-primary);
+            box-shadow: 0 0 30px rgba(210, 139, 75, 0.2), inset 0 0 15px rgba(210, 139, 75, 0.1);
+            display: flex; justify-content: center; align-items: center;
+            margin-bottom: 25px; position: relative;
+            animation: spinGlow 2s linear infinite;
+        }
+        
+        .loader-image-frame img { 
+            width: 110px; height: auto; object-fit: contain; 
+            border-radius: 50%;
+            filter: drop-shadow(0 0 15px rgba(210, 139, 75, 0.6));
+            animation: counterSpinPulse 2s linear infinite;
+        }
+
+        @keyframes spinGlow {
+            0% { transform: rotate(0deg); box-shadow: 0 0 20px rgba(210, 139, 75, 0.2); }
+            50% { box-shadow: 0 0 40px rgba(210, 139, 75, 0.6); }
+            100% { transform: rotate(360deg); box-shadow: 0 0 20px rgba(210, 139, 75, 0.2); }
+        }
+        
+        @keyframes counterSpinPulse {
+            0% { transform: rotate(0deg) scale(0.95); }
+            50% { transform: rotate(-180deg) scale(1.1); }
+            100% { transform: rotate(-360deg) scale(0.95); }
+        }
+        
+        .loading-text { color: var(--gold-light); font-size: 1.1rem; font-weight: 500; margin-top: 10px; }
+        .dots::after { content: ''; animation: dotsLoader 1.5s steps(4, end) infinite; }
+        @keyframes dotsLoader { 0%, 20% { content: ''; } 40% { content: '.'; } 60% { content: '..'; } 80%, 100% { content: '...'; } }
+        .loader-footer { position: absolute; bottom: 40px; width: 100%; text-align: center; }
+
+        /* الرأس (Header) */
+        header {
+            background-color: rgba(43, 29, 20, 0.95); padding: 15px 5%;
+            position: fixed; width: 100%; top: 0; z-index: 1000;
+            display: flex; justify-content: space-between; align-items: center;
+            border-bottom: 1px solid rgba(210, 139, 75, 0.3); backdrop-filter: blur(10px);
+        }
+        .header-right { display: flex; align-items: center; gap: 15px; }
+        .site-title { color: var(--gold-primary); font-size: 1.1rem; font-weight: 700; white-space: nowrap; display: flex; align-items: center; gap: 10px; }
+        .site-title img { width: 35px; height: 35px; border-radius: 50%; object-fit: cover; }
+        .menu-btn { color: var(--gold-primary); font-size: 1.5rem; cursor: pointer; background: none; border: none; transition: 0.3s; }
+        .menu-btn:hover { transform: scale(1.1); }
+        .lang-btn {
+            background: transparent; border: 1px solid var(--gold-primary); color: var(--gold-primary);
+            padding: 3px 8px; border-radius: 5px; cursor: pointer; font-weight: bold; font-size: 0.85rem; transition: 0.3s; font-family: sans-serif;
+        }
+        .lang-btn:hover { background: var(--gold-primary); color: var(--bg-color); }
+
+        /* القائمة الجانبية */
+        .side-menu {
+            position: fixed; top: 65px; width: 250px; height: calc(100vh - 65px);
+            background-color: var(--surface-color); transition: 0.4s; z-index: 999; padding-top: 20px;
+            right: -100%; border-left: 1px solid var(--gold-primary);
+        }
+        html[lang="ar"] .side-menu.active { right: 0; }
+        html[lang="en"] .side-menu { left: -100%; right: auto; border-right: 1px solid var(--gold-primary); border-left: none; }
+        html[lang="en"] .side-menu.active { left: 0; }
+        .side-menu a {
+            display: block; padding: 15px 20px; color: var(--text-light); text-decoration: none;
+            font-size: 1.1rem; border-bottom: 1px solid rgba(255,255,255,0.05); transition: 0.3s;
+        }
+        html[lang="ar"] .side-menu a:hover { color: var(--gold-primary); padding-right: 30px; background: rgba(0,0,0,0.2); }
+        html[lang="en"] .side-menu a:hover { color: var(--gold-primary); padding-left: 30px; background: rgba(0,0,0,0.2); }
+
+        /* الأقسام العامة */
+        section { padding: 100px 5% 50px; }
+        .section-title { text-align: center; color: var(--gold-primary); font-size: 2.5rem; margin-bottom: 40px; position: relative; }
+        .section-title::after { content: ''; display: block; width: 80px; height: 3px; background: var(--gold-primary); margin: 10px auto; border-radius: 2px; }
+
+        .reveal { opacity: 0; transform: translateY(40px); transition: all 0.8s cubic-bezier(0.5, 0, 0, 1); }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+
+        /* الرئيسية */
+        .hero {
+            text-align: center; padding-top: 150px; min-height: 80vh; display: flex; flex-direction: column;
+            justify-content: center; align-items: center; background: radial-gradient(circle at center, #352317 0%, #1a110a 100%);
+        }
+        .hero-img { width: 120px; height: 120px; border-radius: 50%; border: 2px solid var(--gold-primary); box-shadow: 0 0 20px rgba(210, 139, 75, 0.4); margin-bottom: 20px; }
+        .hero h1 {
+            color: var(--gold-primary); font-size: clamp(1.6rem, 4vw, 2.5rem); max-width: 900px;
+            line-height: 1.4; margin-bottom: 20px; text-shadow: 0 2px 10px rgba(210, 139, 75, 0.3); padding: 0 10px;
+        }
+        .hero p { max-width: 800px; font-size: 1.1rem; color: var(--text-muted); line-height: 1.8; margin-bottom: 30px; padding: 0 15px; }
+
+        /* من نحن والخدمات والمزايا */
+        .about-text {
+            background-color: var(--surface-color); padding: 40px; border-radius: 15px;
+            border: 1px solid rgba(210, 139, 75, 0.2); text-align: center; font-size: 1.1rem; line-height: 1.9;
+        }
+        
+        .grid-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
+        
+        .service-card {
+            background-color: var(--surface-color); border: 1px solid rgba(210, 139, 75, 0.4);
+            border-radius: 15px; padding: 30px 20px; text-align: center; transition: 0.3s; cursor: pointer;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+        .service-card:hover { transform: translateY(-10px); box-shadow: 0 15px 30px rgba(210, 139, 75, 0.15); border-color: var(--gold-primary); background: #312117; }
+        
+        .icon-3d-wrapper {
+            width: 70px; height: 70px; margin: 0 auto 20px; border-radius: 50%;
+            background: linear-gradient(145deg, #302016, #241810);
+            box-shadow: 5px 5px 10px #1a110a, -5px -5px 10px #3c291e;
+            border: 1px solid rgba(210, 139, 75, 0.3);
+            display: flex; justify-content: center; align-items: center; transition: 0.3s;
+        }
+        .icon-3d-wrapper i { font-size: 2rem; color: var(--gold-primary); filter: drop-shadow(0 2px 4px rgba(0,0,0,0.5)); transition: 0.3s; }
+        .service-card:hover .icon-3d-wrapper { border-color: var(--gold-primary); box-shadow: inset 5px 5px 10px #1a110a, inset -5px -5px 10px #3c291e; }
+        
+        .service-card h3 { color: var(--gold-light); margin-bottom: 15px; font-size: 1.4rem; }
+        .service-card p { color: var(--text-muted); font-size: 0.95rem; line-height: 1.8; }
+
+        /* ستايل المزايا (لماذا تختارنا) - بطاقات مستطيلة نحيفة */
+        .features-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 20px;
+        }
+        .feature-card {
+            background-color: rgba(43, 29, 20, 0.6);
+            border: 1px solid rgba(210, 139, 75, 0.3);
+            border-radius: 20px;
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        .feature-card::before {
+            content: ''; position: absolute; top: 0; left: -100%; width: 50%; height: 100%;
+            background: linear-gradient(to right, transparent, rgba(210, 139, 75, 0.1), transparent);
+            transform: skewX(-25deg); transition: 0.5s;
+        }
+        .feature-card:hover::before { left: 150%; }
+        .feature-card:hover {
+            transform: translateY(-5px) scale(1.02);
+            border-color: var(--gold-primary);
+            box-shadow: 0 10px 25px rgba(210, 139, 75, 0.15);
+            background-color: var(--surface-color);
+        }
+        .feature-card .icon-wrapper {
+            flex-shrink: 0; width: 60px; height: 60px; border-radius: 50%;
+            background: radial-gradient(circle, #352317, #1a110a);
+            border: 1px solid var(--gold-primary);
+            display: flex; justify-content: center; align-items: center;
+            box-shadow: 0 0 10px rgba(0,0,0,0.5);
+            animation: floatIcon 3s ease-in-out infinite;
+        }
+        .feature-card .icon-wrapper i { font-size: 1.8rem; color: var(--gold-primary); }
+        .feature-content h3 { color: var(--text-light); margin-bottom: 8px; font-size: 1.2rem; }
+        .feature-content p { color: var(--text-muted); font-size: 0.9rem; line-height: 1.6; margin: 0; }
+        
+        @keyframes floatIcon {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-5px); }
+            100% { transform: translateY(0px); }
+        }
+
+        /* ================= تواصل معنا والخريطة (تضاريس واحترافية) ================= */
+        .contact-info { text-align: center; margin-bottom: 40px; padding: 0 10px; }
+        .contact-info p { font-size: 1rem; margin-bottom: 15px; word-wrap: break-word; }
+        html[lang="ar"] .contact-info i { margin-left: 10px; color: var(--gold-primary); }
+        html[lang="en"] .contact-info i { margin-right: 10px; color: var(--gold-primary); }
+        
+        .map-container { 
+            position: relative; border-radius: 20px; overflow: hidden; 
+            border: 2px solid var(--gold-primary); height: 400px; width: 100%; 
+            box-shadow: 0 15px 35px rgba(0,0,0,0.6);
+        }
+        
+        /* فلتر CSS لتحويل الخريطة إلى شكل يتناسب مع الهوية، وعرض منطقة الخدمة */
+        .map-container iframe { 
+            width: 100% !important; height: 100% !important; border: none; 
+            filter: contrast(1.1) saturate(1.2) sepia(0.2) hue-rotate(-10deg); 
+        }
+        
+        /* رسالة النطاق لتأكيد منطقة الخدمة (Service Area Business) لجوجل */
+        .service-area-badge {
+            position: absolute; bottom: 20px; left: 50%; transform: translateX(-50%);
+            background: rgba(26, 17, 10, 0.95); color: var(--gold-light);
+            padding: 10px 20px; border-radius: 30px; font-size: 0.9rem; font-weight: bold;
+            border: 1px solid var(--gold-primary);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+            pointer-events: none; z-index: 10; white-space: nowrap;
+        }
+
+        /* ================= البار السفلي ================= */
+        .bottom-nav {
+            position: fixed; bottom: 12px; left: 50%; transform: translateX(-50%);
+            background-color: rgba(43, 29, 20, 0.95); border: 1px solid var(--gold-primary);
+            border-radius: 35px; display: flex; justify-content: space-around; align-items: center;
+            padding: 5px 10px; width: 90%; max-width: 450px; z-index: 1000; backdrop-filter: blur(10px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.6);
+        }
+        .bottom-nav a {
+            color: var(--gold-primary); text-decoration: none; font-size: 1.1rem;
+            padding: 5px; border-radius: 12px; transition: 0.3s;
+            display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px; flex: 1; text-align: center;
+        }
+        .bottom-nav a:hover, .bottom-nav a:active {
+            background-color: var(--gold-primary); color: var(--bg-color); transform: translateY(-3px);
+        }
+        .nav-text { font-size: 0.65rem; font-weight: 700; }
+
+        /* ================= الأزرار العائمة ================= */
+        .floating-action-menu {
+            position: fixed;
+            bottom: 95px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            z-index: 1000;
+        }
+        html[lang="ar"] .floating-action-menu { left: 15px; }
+        html[lang="en"] .floating-action-menu { right: 15px; }
+
+        .float-btn {
+            width: 45px; height: 45px;
+            border-radius: 50%;
+            display: flex; justify-content: center; align-items: center;
+            font-size: 1.3rem;
+            text-decoration: none; color: white;
+            border: 2px solid white; transition: transform 0.3s;
+        }
+        .float-btn:hover { transform: scale(1.1); }
+        
+        .call-btn { background-color: var(--gold-primary); animation: pulseCall 2s infinite; animation-delay: 1s; }
+        .wa-btn { background-color: #25d366; animation: pulseWA 2s infinite; }
+
+        @keyframes pulseWA { 0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); } 70% { box-shadow: 0 0 0 10px rgba(37, 211, 102, 0); } 100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); } }
+        @keyframes pulseCall { 0% { box-shadow: 0 0 0 0 rgba(210, 139, 75, 0.7); } 70% { box-shadow: 0 0 0 10px rgba(210, 139, 75, 0); } 100% { box-shadow: 0 0 0 0 rgba(210, 139, 75, 0); } }
+
+        /* التذييل */
+        footer { text-align: center; padding: 40px 15px 100px; background-color: #120b06; border-top: 1px solid rgba(210, 139, 75, 0.2); }
+        .copyright { color: var(--text-muted); font-size: 0.85rem; margin-bottom: 15px; display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 8px; }
+        .designer-badge, .designer-badge-loader { display: inline-flex; align-items: center; justify-content: center; border: 1.5px solid var(--silver); padding: 6px 15px; border-radius: 30px; text-decoration: none; background: linear-gradient(145deg, #2b1d14, #3a271c); transition: 0.3s; text-align: center; max-width: 100%; }
+        .designer-badge span, .designer-badge-loader span { color: var(--silver); font-weight: bold; font-size: 0.7rem; text-shadow: 0 0 5px rgba(0, 0, 0, 0.5); white-space: normal; }
+        .designer-badge:hover { background: var(--silver); transform: scale(1.05); }
+        .designer-badge:hover span { color: #fff; text-shadow: none; }
+
+        /* ================= التجاوب للشاشات الصغيرة ================= */
+        @media (max-width: 768px) {
+            section { padding: 80px 5% 40px; }
+            .section-title { font-size: 1.8rem; margin-bottom: 30px; }
+            .hero { padding-top: 100px; min-height: 70vh; }
+            .hero h1 { font-size: 1.5rem; }
+            .hero p { font-size: 0.95rem; }
+            .about-text { padding: 25px 15px; font-size: 1rem; line-height: 1.7; }
+            .grid-container { grid-template-columns: 1fr; gap: 20px; }
+            .service-card { padding: 25px 15px; }
+            .features-grid { grid-template-columns: 1fr; }
+            .feature-card { flex-direction: column; text-align: center !important; }
+            .map-container { height: 300px; }
+            .bottom-nav { width: 95%; bottom: 10px; }
+            .floating-action-menu { bottom: 85px; }
+            .float-btn { width: 40px; height: 40px; font-size: 1.2rem; }
+            header .site-title { font-size: 0.95rem; }
+            .site-title img { width: 30px; height: 30px; }
+        }
+    </style>
+</head>
+<body class="no-scroll">
+
+    <div id="loader">
+        <div class="loader-content">
+            <div class="loader-image-frame">
+                <img src="https://i.ibb.co/JjbTRxmm/20260408-014409.png" alt="شعار ابو مريم لأعمال النجارة">
+            </div>
+            <p class="loading-text">
+                <span class="ar">جاري تجهيز الموقع</span><span class="en">Loading Website</span><span class="dots"></span>
+            </p>
+        </div>
+        <div class="loader-footer">
+            <div class="designer-badge-loader">
+                <span class="ar">👑 تم التصميم بواسطة المهندس إسلام الشيخ 👑</span>
+                <span class="en">👑 Designed by Eng. Islam Elsheikh 👑</span>
+            </div>
+        </div>
+    </div>
+
+    <header>
+        <div class="header-right">
+            <button class="menu-btn" onclick="toggleMenu()" aria-label="Menu"><i class="fas fa-bars"></i></button>
+            <div class="site-title">
+                <img src="https://i.ibb.co/JjbTRxmm/20260408-014409.png" alt="شعار">
+                <span class="ar">ابو مريم للنجارة والديكور</span>
+                <span class="en">Abu Maryam Carpentry</span>
+            </div>
+        </div>
+        <button id="langToggleBtn" class="lang-btn">EN</button>
+    </header>
+
+    <div class="side-menu" id="sideMenu">
+        <a href="#hero" onclick="toggleMenu()"><span class="ar">الرئيسية</span><span class="en">Home</span></a>
+        <a href="#about" onclick="toggleMenu()"><span class="ar">من نحن</span><span class="en">About Us</span></a>
+        <a href="#services" onclick="toggleMenu()"><span class="ar">خدماتنا</span><span class="en">Services</span></a>
+        <a href="#why-us" onclick="toggleMenu()"><span class="ar">لماذا نحن</span><span class="en">Why Us</span></a>
+        <a href="#contact" onclick="toggleMenu()"><span class="ar">تواصل معنا</span><span class="en">Contact</span></a>
+    </div>
+
+    <section id="hero" class="hero reveal">
+        <img src="https://i.ibb.co/JjbTRxmm/20260408-014409.png" alt="ابو مريم لأعمال النجارة" class="hero-img">
+        <h1>
+            <span class="ar">ابو مريم | لأعمال النجارة والديكور الخشبي بالرياض</span>
+            <span class="en">Abu Maryam | Carpentry & Wooden Decors in Riyadh</span>
+        </h1>
+        <p>
+            <span class="ar">هل تبحث عن الفخامة والجودة في أعمال النجارة لمنزلك؟ نقدم لك أرقى خدمات تفصيل الخزائن، غرف النوم، والديكورات الجدارية بلمسات فنية إبداعية تحول مساحاتك إلى تحف فنية. نتميز بالدقة المتناهية والاحترافية العالية في تنفيذ كافة أعمال الديكور الخشبي المودرن والكلاسيك. نعتمد على أفضل أنواع الأخشاب لضمان جودة تدوم طويلاً مع أسعار تنافسية. نخدم حي الملك فهد وكافة أحياء الرياض.</span>
+            <span class="en">Looking for luxury and quality in woodwork? We offer the finest custom cabinets, bedrooms, and wall decors with creative artistic touches. We excel in precision and professionalism in executing all modern and classic wooden decor works, relying on the best types of wood. Serving King Fahd District and all Riyadh neighborhoods.</span>
+        </p>
+    </section>
+
+    <section id="about">
+        <h2 class="section-title reveal"><span class="ar">من نحن</span><span class="en">About Us</span></h2>
+        <div class="about-text reveal">
+            <span class="ar"><strong>مؤسسة أبو مريم لأعمال النجارة والديكور الخشبي،</strong> صرح متخصص في عالم الديكورات الخشبية والموبيليا الراقية بالرياض. نمتلك سنوات من الخبرة الواسعة والميدانية في تقديم حلول خشبية متكاملة تلبي كافة تطلعات عملائنا الكرام. نجمع بين المهارة الحرفية اليدوية والفهم العميق لأحدث اتجاهات التصميم الداخلي، لنقدم لك نتائج مبهرة تتجاوز توقعاتك بجودة لا تضاهى ومتانة تعيش لأجيال.</span>
+            <span class="en"><strong>Abu Maryam for Carpentry and Wooden Decor,</strong> a specialized entity in luxury wooden decors and furniture in Riyadh. We have years of extensive field experience providing comprehensive wooden solutions. We combine manual craftsmanship with a deep understanding of modern interior design to deliver stunning results with unmatched quality.</span>
+        </div>
+    </section>
+
+    <section id="services">
+        <h2 class="section-title reveal"><span class="ar">خدماتنا</span><span class="en">Our Services</span></h2>
+        <div class="grid-container">
+            <div class="service-card reveal" onclick="this.classList.toggle('active')">
+                <div class="icon-3d-wrapper"><i class="fas fa-box-open"></i></div>
+                <h3><span class="ar">تفصيل خزائن</span><span class="en">Custom Cabinets</span></h3>
+                <p><span class="ar">نصمم وننفذ خزائن تلبي احتياجاتك بأعلى معايير الجودة والفخامة. نستخدم أخشاباً متينة تتحمل الاستخدام اليومي مع إكسسوارات عصرية تضمن لك انسيابية في الاستخدام ومظهراً جمالياً يضفي طابعاً من الرقي على مساحتك. نهتم بأدق التفاصيل من مرحلة رفع المقاسات وحتى التركيب النهائي لتستغل المساحة بذكاء.</span><span class="en">We design and execute custom cabinets that meet your needs with the highest quality standards. We use durable woods and modern accessories ensuring smooth daily use and an elegant look that perfectly utilizes your space.</span></p>
+            </div>
+            <div class="service-card reveal" onclick="this.classList.toggle('active')">
+                <div class="icon-3d-wrapper"><i class="fas fa-door-closed"></i></div>
+                <h3><span class="ar">تفصيل دواليب</span><span class="en">Custom Wardrobes</span></h3>
+                <p><span class="ar">نقدم لك خدمة تفصيل دواليب مبتكرة وعملية، مصممة خصيصاً لتنظيم ملابسك وأغراضك بأسلوب احترافي يسهل عليك الوصول إليها. نعتمد على تقسيمات داخلية ذكية ومدروسة تناسب كافة احتياجاتك، مع الاهتمام بالمظهر الخارجي ليكون قطعة فنية تندمج بسلاسة مع ديكور غرفتك بجودة وتصاميم عصرية حديثة.</span><span class="en">Innovative and practical custom wardrobes designed to organize your clothes professionally. We rely on smart internal divisions suited to your needs, blending seamlessly with your room's decor with top-tier modern designs.</span></p>
+            </div>
+            <div class="service-card reveal" onclick="this.classList.toggle('active')">
+                <div class="icon-3d-wrapper"><i class="fas fa-tshirt"></i></div>
+                <h3><span class="ar">تفصيل غرف ملابس</span><span class="en">Dressing Rooms</span></h3>
+                <p><span class="ar">حوّل مساحتك إلى غرفة ملابس الأحلام (دريسنج روم) متكاملة الأركان. نصمم لك غرف ملابس فخمة وعملية تتيح لك عرض مقتنياتك وأزيائك بأسلوب يشبه أرقى المعارض. نوفر لك إضاءات مدمجة، أدراج مقسمة، وأرفف متعددة الاستخدامات لتجربة استخدام يومية مريحة وراقية تلبي تطلعاتك.</span><span class="en">Transform your space into a dream dressing room. We design luxurious walk-in closets allowing you to display your fashion like premium galleries, featuring integrated lighting, divided drawers, and versatile shelving.</span></p>
+            </div>
+            <div class="service-card reveal" onclick="this.classList.toggle('active')">
+                <div class="icon-3d-wrapper"><i class="fas fa-female"></i></div>
+                <h3><span class="ar">تفصيل غرف عبايات</span><span class="en">Abaya Rooms</span></h3>
+                <p><span class="ar">تصميم حصري لغرف وخزائن العبايات يراعي الخصوصية والأناقة المعهودة في البيوت السعودية. نبتكر لك مساحات تخزين مخصصة تحافظ على جودة ونظافة العبايات بأسلوب منظم. نستخدم خامات خشبية راقية ومفصلات انسيابية تضمن لك استخداماً هادئاً ومريحاً، مع لمسات ديكورية تضفي فخامة استثنائية.</span><span class="en">Exclusive design for Abaya rooms considering privacy and elegance. We create dedicated storage spaces preserving the quality of Abayas, using premium woods and smooth hinges for a luxurious and comfortable daily experience.</span></p>
+            </div>
+            <div class="service-card reveal" onclick="this.classList.toggle('active')">
+                <div class="icon-3d-wrapper"><i class="fas fa-bed"></i></div>
+                <h3><span class="ar">تفصيل غرف نوم</span><span class="en">Custom Bedrooms</span></h3>
+                <p><span class="ar">نصنع لك واحة من الراحة والهدوء من خلال تفصيل غرف نوم ماستر تتسم بالفخامة والرقي. كل قطعة تُصنع بحرفية عالية ولمسات فنية تناسب ذوقك، سواء الطراز الكلاسيكي أو المودرن. نضمن لك استخدام أخشاب معالجة بأفضل الطرق لتدوم طويلاً وتحافظ على رونقها وجمالها عاماً بعد عام بكل تفاصيلها الفاخرة.</span><span class="en">We craft an oasis of comfort by detailing master bedrooms characterized by luxury. Each piece is crafted with high skill fitting your taste, whether classic or modern, using treated woods designed to last beautifully year after year.</span></p>
+            </div>
+            <div class="service-card reveal" onclick="this.classList.toggle('active')">
+                <div class="icon-3d-wrapper"><i class="fas fa-child"></i></div>
+                <h3><span class="ar">تفصيل غرف اطفال</span><span class="en">Kids Rooms</span></h3>
+                <p><span class="ar">نقدم تصميمات مبهجة وآمنة لغرف الأطفال، تجمع بين الألوان الجذابة والاستغلال الأمثل للمساحات. نحرص على استخدام مواد طلاء وأخشاب صديقة للبيئة وآمنة تماماً. نصمم مكاتب دراسة، أسرة مريحة، وأماكن تخزين ذكية للألعاب، لتكون الغرفة بيئة محفزة للنمو بأسلوب يرضي طموحك ويسعد أطفالك.</span><span class="en">Joyful and safe custom designs for kids' rooms, combining attractive colors with optimal space usage. We use eco-friendly and safe materials to design study desks, comfy beds, and smart toy storage, creating a stimulating environment.</span></p>
+            </div>
+            <div class="service-card reveal" onclick="this.classList.toggle('active')">
+                <div class="icon-3d-wrapper"><i class="fas fa-layer-group"></i></div>
+                <h3><span class="ar">تفصيل ديكورات خشبية</span><span class="en">Wooden Decors</span></h3>
+                <p><span class="ar">أضف لمسة من الدفء والجمال على جدران منزلك مع خدماتنا في تفصيل التكسيات والديكورات الخشبية الجدارية. نبتكر تصميمات هندسية وفنية رائعة باستخدام أخشاب عالية الجودة، لتشكيل لوحات جدارية تبرز فخامة صالات الاستقبال والمجالس، وتعطي انطباعاً أولياً بالرقي والتميز لكل زائر.</span><span class="en">Add warmth and beauty to your walls with custom wooden cladding and decors. We create stunning geometric designs using high-quality wood, highlighting the luxury of your reception areas and leaving a lasting impression of elegance.</span></p>
+            </div>
+            <div class="service-card reveal" onclick="this.classList.toggle('active')">
+                <div class="icon-3d-wrapper"><i class="fas fa-tv"></i></div>
+                <h3><span class="ar">تفصيل ديكور شاشات</span><span class="en">TV Decors</span></h3>
+                <p><span class="ar">صمم منطقة الترفيه الخاصة بك بأسلوب عصري مع ديكورات الشاشات والمكتبات التلفزيونية. نوفر حلولاً ذكية لإخفاء الأسلاك بالكامل، مع أرفف أنيقة لعرض التحف. ندمج الإضاءة المخفية مع الأخشاب الفاخرة لنخلق لك زاوية بصرية مريحة وجذابة تزيد من متعة مشاهدة برامجك في صالة جلوسك الراقية.</span><span class="en">Design your entertainment area modernly with custom TV decors. We provide smart solutions for hiding wires entirely, elegantly combining hidden lighting with premium woods to create a visually comfortable and attractive viewing angle.</span></p>
+            </div>
+            <div class="service-card reveal" onclick="this.classList.toggle('active')">
+                <div class="icon-3d-wrapper"><i class="fas fa-boxes"></i></div>
+                <h3><span class="ar">تفصيل غرف تخزين</span><span class="en">Storage Rooms</span></h3>
+                <p><span class="ar">استغل المساحات المهدرة في منزلك مع حلول التخزين المبتكرة التي نقدمها لك. نصمم أرفف وخزائن متينة وعملية لغرف التخزين والمستودعات المنزلية، تتحمل الأوزان الثقيلة وتساعدك على ترتيب الأغراض بشكل منظم يسهل الوصول إليه. نحول الفوضى إلى ترتيب هندسي دقيق يوفر عليك الجهد والوقت.</span><span class="en">Utilize wasted spaces with our innovative storage solutions. We design sturdy shelving and practical cabinets for storage rooms, bearing heavy weights and helping you neatly organize items, turning chaos into precise geometric order.</span></p>
+            </div>
+            <div class="service-card reveal" onclick="this.classList.toggle('active')">
+                <div class="icon-3d-wrapper"><i class="fas fa-tools"></i></div>
+                <h3><span class="ar">صيانة اثاث وموبيليا</span><span class="en">Furniture Maintenance</span></h3>
+                <p><span class="ar">خدمة متكاملة لإعادة الحياة إلى أثاثك الخشبي. نقوم بمعالجة الخدوش، إصلاح الكسور، وتجديد المفصلات والأبواب لتعود وكأنها جديدة. سواء كان لديك أثاث كلاسيكي قيم أو قطع حديثة تحتاج إلى صيانة، فإن فريقنا المختص يمتلك المهارة والأدوات لإعادة رونقها بأسعار مدروسة وبأعلى درجات الإتقان.</span><span class="en">A comprehensive service to revive your wooden furniture. We treat scratches, fix breakages, and renew hinges and doors to look brand new again. Our skilled team restores the beauty of your classic or modern pieces with ultimate mastery.</span></p>
+            </div>
+            <div class="service-card reveal" onclick="this.classList.toggle('active')">
+                <div class="icon-3d-wrapper"><i class="fas fa-concierge-bell"></i></div>
+                <h3><span class="ar">تفصيل كاونتر إستقبال</span><span class="en">Reception Counters</span></h3>
+                <p><span class="ar">عزز الهوية البصرية لشركتك بكاونترات استقبال فخمة تعكس مدى احترافيتك. نصمم وننفذ كاونترات بواجهات خشبية راقية مدمجة بإضاءات ليد، مع مراعاة توفير مساحات عمل مريحة وعملية للموظفين من الداخل. نضمن لك تصميماً يجذب الأنظار ويترك انطباعاً إيجابياً ومميزاً لدى عملائك من اللحظة الأولى.</span><span class="en">Enhance your company's visual identity with luxurious reception counters. We execute counters with elegant wooden facades and LED lighting, ensuring comfortable internal workspaces, leaving a striking positive impression on your clients.</span></p>
+            </div>
+            <div class="service-card reveal" onclick="this.classList.toggle('active')">
+                <div class="icon-3d-wrapper"><i class="fas fa-coffee"></i></div>
+                <h3><span class="ar">تفصيل كوفي كورنر</span><span class="en">Coffee Corners</span></h3>
+                <p><span class="ar">اصنع ركن القهوة الخاص بك (كوفي كورنر) بتصميم يضاهي أرقى المقاهي. نوفر لك وحدات خشبية مخصصة لآلات الإسبريسو، مع أرفف أنيقة لعرض نكهات القهوة. ندمج بين الجانب الجمالي والعملي لتستمتع بتحضير قهوتك في زاوية مريحة تعكس شغفك، باستخدام أخشاب مقاومة للرطوبة وسهلة التنظيف يومياً.</span><span class="en">Create your custom coffee corner rivaling top cafes. We provide tailored wooden units for espresso machines and stylish shelves for displaying coffee flavors, blending aesthetics and practicality using moisture-resistant, easy-to-clean woods.</span></p>
+            </div>
+        </div>
+    </section>
+
+    <section id="why-us" style="background-color: #1f140e;">
+        <h2 class="section-title reveal"><span class="ar">لماذا تختارنا</span><span class="en">Why Choose Us</span></h2>
+        <div class="features-grid">
+            <div class="feature-card reveal">
+                <div class="icon-wrapper"><i class="fas fa-medal"></i></div>
+                <div class="feature-content">
+                    <h3><span class="ar">الجودة والدقة</span><span class="en">Quality & Precision</span></h3>
+                    <p><span class="ar">نلتزم بتقديم أعلى مستويات الدقة في التصميم والتنفيذ، معتمدين على أجود أنواع الأخشاب والخامات العالمية لنضمن لك تحفاً خشبية تدوم طويلاً وتتحدى الزمن بفخامتها وصلابتها.</span><span class="en">Committed to the highest levels of precision in design and execution, relying on premium woods and materials ensuring long-lasting, luxurious wooden masterpieces.</span></p>
+                </div>
+            </div>
+            <div class="feature-card reveal">
+                <div class="icon-wrapper"><i class="fas fa-tags"></i></div>
+                <div class="feature-content">
+                    <h3><span class="ar">اسعار تنافسية</span><span class="en">Competitive Prices</span></h3>
+                    <p><span class="ar">نقدم لك معادلة القيمة مقابل السعر الحقيقية. نحرص على تقديم أسعار مدروسة ومناسبة تتوافق مع ميزانيتك دون أي مساومة على معايير الجودة العالية والتشطيبات الاحترافية التي تستحقها.</span><span class="en">We offer true value-for-money. We ensure affordable pricing suiting your budget without ever compromising on the high quality and professional finishes you deserve.</span></p>
+                </div>
+            </div>
+            <div class="feature-card reveal">
+                <div class="icon-wrapper"><i class="fas fa-shield-alt"></i></div>
+                <div class="feature-content">
+                    <h3><span class="ar">ضمان ما بعد التنفيذ</span><span class="en">Post-Execution Guarantee</span></h3>
+                    <p><span class="ar">ثقتنا في عملنا تدفعنا لتقديم ضمان حقيقي وشامل على كافة أعمالنا الخشبية. نحن هنا لخدمتك دائماً، ونقف خلف جودة منتجاتنا لضمان راحتك ورضاك التام حتى بعد استلام المشروع.</span><span class="en">Our confidence drives us to offer a real, comprehensive warranty on all woodwork. We stand behind our quality to ensure your total satisfaction even after project delivery.</span></p>
+                </div>
+            </div>
+            <div class="feature-card reveal">
+                <div class="icon-wrapper"><i class="fas fa-headset"></i></div>
+                <div class="feature-content">
+                    <h3><span class="ar">خدمة عملاء على مدار الساعة</span><span class="en">24/7 Customer Service</span></h3>
+                    <p><span class="ar">فريقنا متواجد دائماً للرد على استفساراتك وتلبية طلباتك في أي وقت. نوفر لك تواصلاً سريعاً وفعالاً لضمان تجربة سلسة ومريحة من بداية الاستشارة وحتى إتمام التركيب النهائي.</span><span class="en">Our team is always available to answer inquiries and fulfill requests anytime. We provide fast communication for a seamless experience from consultation to final installation.</span></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <h2 class="section-title reveal"><span class="ar">تواصل معنا</span><span class="en">Contact Us</span></h2>
+        <div class="contact-info reveal">
+            <p><i class="fas fa-phone"></i> <span class="ar">رقم التواصل: </span><span class="en">Phone: </span><a href="tel:0566523897" style="color:var(--text-light); text-decoration:none; direction:ltr; display:inline-block; font-weight:bold;">0566523897</a></p>
+            <p><i class="fas fa-envelope"></i> <span class="ar">البريد الإلكتروني: </span><span class="en">Email: </span><a href="mailto:info@najaradecor.com" style="color:var(--text-light); text-decoration:none;">info@najaradecor.com</a></p>
+        </div>
+        
+        <div class="map-container reveal">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14493.571408800201!2d46.6669865!3d24.7476839!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e2ee2e51928dfb5%3A0xcda6dcabf07fcf57!2z2K3ZiiDYp9mE2YXZhNmDINmB2YfYrdiMINin2YTZhdiv2KjYjCBBbCBSaXlhZGggMTIyNzQ!5e0!3m2!1sen!2ssa!4v1712530000000!5m2!1sen!2ssa" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            
+            <div class="service-area-badge">
+                <span class="ar">نطاق الخدمة: حي الملك فهد وكافة أحياء الرياض</span>
+                <span class="en">Service Area: King Fahd District & Riyadh</span>
+            </div>
+        </div>
+    </section>
+
+    <div class="floating-action-menu">
+        <a href="tel:0566523897" class="float-btn call-btn" aria-label="Call">
+            <i class="fas fa-phone-alt"></i>
+        </a>
+        <a href="https://wa.me/966566523897" class="float-btn wa-btn" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+    </div>
+
+    <nav class="bottom-nav">
+        <a href="#hero">
+            <i class="fas fa-home"></i>
+            <span class="nav-text"><span class="ar">الرئيسية</span><span class="en">Home</span></span>
+        </a>
+        <a href="#services">
+            <i class="fas fa-tools"></i>
+            <span class="nav-text"><span class="ar">خدماتنا</span><span class="en">Services</span></span>
+        </a>
+        <a href="#why-us">
+            <i class="fas fa-star"></i>
+            <span class="nav-text"><span class="ar">لماذا نحن</span><span class="en">Why Us</span></span>
+        </a>
+        <a href="#contact">
+            <i class="fas fa-phone-alt"></i>
+            <span class="nav-text"><span class="ar">تواصل</span><span class="en">Contact</span></span>
+        </a>
+    </nav>
+
+    <footer>
+        <div class="copyright">
+            <span><i class="fas fa-copyright"></i> <span class="ar">جميع الحقوق محفوظة لدى : ابو مريم لأعمال النجارة والديكور الخشبي 2026</span><span class="en">All rights reserved to Abu Maryam Carpentry 2026</span></span>
+        </div>
+        
+        <a href="https://wa.me/966547194788" target="_blank" class="designer-badge" rel="noopener noreferrer">
+            <span class="ar">👑 تم التصميم بواسطة المهندس إسلام الشيخ 👑</span>
+            <span class="en">👑 Designed by Eng. Islam Elsheikh 👑</span>
+        </a>
+    </footer>
+
+    <script>
+        // إعدادات شاشة التحميل (3 ثواني)
+        document.addEventListener("DOMContentLoaded", () => {
+            setTimeout(() => {
+                const loader = document.getElementById('loader');
+                loader.classList.add('hidden');
+                document.body.classList.remove('no-scroll');
+                setTimeout(() => { loader.style.display = 'none'; }, 500);
+            }, 3000); 
+        });
+
+        // القائمة الجانبية
+        function toggleMenu() {
+            const sideMenu = document.getElementById('sideMenu');
+            sideMenu.classList.toggle('active');
+        }
+
+        // نظام اللغتين التلقائي واليدوي
+        const langBtn = document.getElementById('langToggleBtn');
+        let currentLang = 'ar';
+
+        function setLanguage(lang) {
+            currentLang = lang;
+            document.documentElement.lang = lang;
+            langBtn.innerText = lang === 'ar' ? 'EN' : 'AR';
+            localStorage.setItem('siteLang', lang);
+            document.getElementById('sideMenu').classList.remove('active');
+        }
+
+        langBtn.addEventListener('click', () => {
+            setLanguage(currentLang === 'ar' ? 'en' : 'ar');
+        });
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const savedLang = localStorage.getItem('siteLang');
+            if (savedLang) {
+                setLanguage(savedLang);
+            } else {
+                const browserLang = navigator.language || navigator.userLanguage;
+                setLanguage(browserLang.toLowerCase().startsWith('ar') ? 'ar' : 'en');
+            }
+        });
+
+        // كود الأنيميشن عند السكرول
+        function revealOnScroll() {
+            const reveals = document.querySelectorAll('.reveal');
+            const windowHeight = window.innerHeight;
+            const elementVisible = 100;
+
+            reveals.forEach((reveal) => {
+                const elementTop = reveal.getBoundingClientRect().top;
+                if (elementTop < windowHeight - elementVisible) {
+                    reveal.classList.add('active');
+                }
+            });
+        }
+        window.addEventListener('scroll', revealOnScroll);
+        setTimeout(revealOnScroll, 3100); 
+    </script>
+</body>
+</html>
